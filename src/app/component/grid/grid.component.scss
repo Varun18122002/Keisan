@@ -1,0 +1,335 @@
+/* General Grid Styles */
+.spreadsheet {
+  border-collapse: collapse;
+  width: 100%;
+  position: relative;
+}
+
+.spreadsheet th,
+.spreadsheet td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  min-width: 100px;
+  height: 25px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative; /* Required for resize handles */
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.spreadsheet th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  cursor: move;
+  user-select: none;
+}
+
+.spreadsheet td {
+  text-align: right;
+}
+
+/* Resizing Handles */
+.column-resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background-color: transparent;
+  cursor: col-resize;
+  z-index: 10;
+}
+
+.column-resize-handle:hover {
+  background-color: #0078d7;
+}
+
+/* Row Resizing (Optional, Add If Needed) */
+.row-resize-handle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  cursor: row-resize;
+  z-index: 10;
+}
+
+.row-resize-handle:hover {
+  background-color: #0078d7;
+}
+
+/* Dragging Visual Feedback */
+.dragging {
+  opacity: 0.5;
+}
+
+.spreadsheet th.dragging,
+.spreadsheet td.dragging {
+  background-color: rgba(0, 120, 212, 0.1);
+}
+
+/* Selection */
+.selected {
+  background-color: rgba(0, 120, 215, 0.1);
+  outline: 2px solid #0078d7;
+}
+
+/* Tabs and Buttons */
+.sheet-tabs {
+  display: flex;
+  padding: 5px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+}
+
+.sheet-tabs button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.sheet-tabs button.active {
+  background-color: #0078d4;
+  color: white;
+}
+
+.add-sheet-btn {
+  background-color: #28a745;
+  color: black;
+}
+
+/* Fixed Column */
+.fixed-column {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+  .column-resize-handle:hover, .row-resize-handle:hover {
+    background-color: #0078d7;
+  }
+
+
+  .column-resize-handle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: transparent;
+    cursor: col-resize;
+
+    &:hover {
+      background-color: #1a73e8;
+    }
+  }
+
+  th {
+    position: relative;
+    min-width: 50px;
+    user-select: none;
+  }
+
+  .spreadsheet {
+    border-collapse: collapse;
+    width: max-content;
+
+    th, td {
+      border: 1px solid #e0e0e0;
+      padding: 8px;
+      position: relative;
+      box-sizing: border-box;
+      transition: width 0.1s ease;
+    }
+  }
+
+  .sort-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    vertical-align: middle;
+  }
+  .sort-arrow {
+    user-select: none;
+  }
+
+  .spreadsheet-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .sheet-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    min-width: 100px;
+  }
+
+  td.selected {
+    background-color: #e6f3ff;
+  }
+
+  .sortable-header {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .sort-indicator {
+    margin-left: 4px;
+  }
+
+  .sorted-asc .sort-indicator::after {
+    content: '▲';
+  }
+
+  .sorted-desc .sort-indicator::after {
+    content: '▼';
+  }
+
+  .column-header {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 16px;
+  }
+
+  .sort-indicator {
+    font-size: 12px;
+    margin-left: 4px;
+  }
+
+  .sheet-container {
+    height: calc(100vh - 100px); // Adjust based on your toolbar height
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .grid-container {
+    flex: 1;
+    overflow: auto;
+    position: relative;
+  }
+
+  .spreadsheet {
+    border-collapse: collapse;
+    min-width: 100%;
+    table-layout: fixed;
+
+    thead {
+      position: sticky;
+      top: 0;
+      background: #f8f9fa;
+      z-index: 1;
+
+      th {
+        position: sticky;
+        top: 0;
+        background: #f8f9fa;
+      }
+
+      th:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+      }
+    }
+
+    td:first-child {
+      position: sticky;
+      left: 0;
+      background: #f8f9fa;
+      z-index: 1;
+    }
+  }
+
+  .grid-container {
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    scroll-behavior: smooth; // For smoother scrolling
+
+    /* Hide scrollbar for cleaner look but keep functionality */
+    &::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* For Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+
+  .spreadsheet {
+    border-collapse: collapse;
+    min-width: 100%;
+    table-layout: fixed;
+
+    /* Keep header row fixed */
+    thead {
+      position: sticky;
+      top: 0;
+      background: #f8f9fa;
+      z-index: 1;
+    }
+
+    /* Keep first column fixed */
+    th:first-child,
+    td:first-child {
+      position: sticky;
+      left: 0;
+      background: #f8f9fa;
+      z-index: 2;
+    }
+
+    /* Corner cell needs higher z-index */
+    thead th:first-child {
+      z-index: 3;
+    }
+  }

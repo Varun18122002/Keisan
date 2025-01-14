@@ -1,0 +1,277 @@
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa; /* Light gray background */
+  border-bottom: 1px solid #d3d3d3; /* Subtle border for separation */
+  padding: 0; /* Remove padding to match Google's compact style */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.toolbar-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.dropdown-btn:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 180px;
+  border-radius: 4px;
+  padding: 4px 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content button {
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content hr {
+  margin: 4px 0;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+}
+
+.formatting-tools {
+  display: flex;
+  gap: 8px;
+  border-left: 1px solid #d3d3d3;
+  padding-left: 8px;
+}
+
+.formatting-tools button {
+  padding: 6px 12px;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.formatting-tools button:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formatting-tools button.active {
+  background-color: #e0e0e0;
+  border-color: #c0c0c0;
+}
+
+.formula-bar {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formula-bar label {
+  margin-right: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.formula-bar input {
+  flex-grow: 1;
+  padding: 6px 12px;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.formula-bar input:focus {
+  border-color: #0069d9;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 105, 217, 0.3);
+}
+
+.formula-section {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.cell-reference {
+  min-width: 80px;
+  padding: 4px 8px;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 14px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell-reference.active {
+  background-color: #e9ecef;
+}
+
+.formula-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formula-bar input {
+  flex: 1;
+  height: 28px;
+  padding: 4px 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.formula-bar label {
+  font-weight: bold;
+  color: #495057;
+}
+
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  min-width: 300px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.formatting-tools {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.formatting-tools button {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.formatting-tools button.active {
+  background: #e6e6e6;
+}
+
+.formatting-tools input[type="color"] {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid #ccc;
+}
+.formatting-tools {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 4px;
+}
+
+.formatting-tools button {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formatting-tools button.active {
+  background: #e6e6e6;
+  border-color: #999;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.color-input {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.color-label {
+  font-size: 10px;
+  color: #666;
+}

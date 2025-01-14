@@ -1,0 +1,176 @@
+.wrapper {
+  width: 250px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 12px 35px 0 rgba(0, 0, 0, 0.3);
+  position: fixed;
+}
+
+.wrapper .menu {
+  padding: 10px;
+}
+
+.item {
+  gap: 10px;
+}
+
+.content .item {
+  list-style: none;
+  font-size: 15px;
+  height: 40px;
+  width: 95%;
+  display: flex;
+  cursor: pointer;
+  padding: 0 5px 0 10px;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  background: #f2f2f2;
+}
+
+.content .item svg {
+  height: 30px;
+  width: 30px;
+  color: #333;
+}
+
+.content .item span {
+  font-size: 19px;
+  margin-left: 8px;
+}
+
+.content .item:hover {
+  background: #e6e6e6;
+}
+
+// Enhanced submenu styling
+.item-add .insert-menu,
+.item-delete .delete-menu {
+  position: absolute;
+  left: 100%; // Changed from fixed pixel value
+  top: 0;
+  background-color: #ffffff;
+  width: 200px; // Fixed width for submenu
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  transition: 0.2s ease;
+  opacity: 0;
+  border-radius: 5px;
+  padding: 5px;
+  z-index: 1000; // Ensure submenus appear above other elements
+}
+
+// Container positioning
+.item-add,
+.item-delete {
+  position: relative;
+  justify-content: space-between;
+}
+
+// Show submenus on hover
+.item-add:hover .insert-menu,
+.item-delete:hover .delete-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(10px); // Smooth transition to the right
+}
+
+// Submenu items
+.insert-menu .item,
+.delete-menu .item {
+  width: 90%;
+  margin: 5px auto;
+  padding: 8px 10px;
+  height: auto;
+  white-space: nowrap; // Prevent text wrapping
+}
+
+// Parent menu items with submenus
+.item-add,
+.item-delete,
+.item {
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Add spacing between submenu items
+.insert-menu,
+.delete-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.menu-wrapper {
+  position: absolute;
+  z-index: 1000;
+  background-color: #1e1e2f;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-wrapper[style*="visible"] {
+  transform: scale(1);
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: #29293e;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.label {
+  flex-grow: 1;
+}
+
+.submenu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #2a2a40;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 8px 0;
+  list-style: none;
+  display: none;
+}
+
+.menu-item.has-submenu:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.submenu li:hover {
+  background-color: #3b3b4f;
+}
